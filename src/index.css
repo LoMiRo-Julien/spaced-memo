@@ -15,7 +15,15 @@ body {
   text-align: center;
   min-height: 90vh;
 }
-
+.information_content{
+  background-color: rgb(230, 228, 228);
+  border-radius: 15px;
+  padding: 20px ;
+  margin: 50px auto;
+  text-align:left;
+  width: 80%;
+  
+}
 .app_container {
   width: 100%;
   min-height: 75vh;

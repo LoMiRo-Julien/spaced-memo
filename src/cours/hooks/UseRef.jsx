@@ -21,7 +21,8 @@ const UseRef = () => {
   }
 
   return (
-    <div style={{ textAlign: "left", margin: "50px" }}>
+    <div className="information_content">
+      <h1>Le hook useRef</h1>
       source:{" "}
       <a
         href="https://react.dev/learn/referencing-values-with-refs"

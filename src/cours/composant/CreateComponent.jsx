@@ -1,8 +1,8 @@
 import Highlight from "react-highlight";
 const CreateComponent = () => {
   return (
-    <div style={{ textAlign: "left", margin: "50px" }}>
-      <h2>Creer un composant</h2>
+    <div className="information_content">
+      <h1>Creer un composant</h1>
       <p>
         Avec react pour crée des composants il faut savoir que REACT depuis la
         version 14 privilegie la programmation fonctionnel. <br />

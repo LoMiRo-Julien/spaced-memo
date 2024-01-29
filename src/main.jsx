@@ -8,15 +8,14 @@ import { Data_Provider } from "./contexts/Data_context.jsx";
 import Hooks from "./cours/hooks/Hooks.jsx";
 import UseRef from "./cours/hooks/UseRef.jsx";
 import CreateComponent from "./cours/composant/CreateComponent.jsx";
+import Index from "./cours/Index.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
     <PrimeReactProvider>
       <Data_Provider>
         <App />
-        <Hooks />
-        <UseRef />
-        <CreateComponent />
+        <Index />
       </Data_Provider>
     </PrimeReactProvider>
   </StrictMode>

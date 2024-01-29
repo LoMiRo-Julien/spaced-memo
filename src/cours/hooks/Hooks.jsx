@@ -16,7 +16,7 @@ const Hooks = () => {
     }
 
     return (
-      <>
+      <div>
         <h3>Formulaire avec 2 états identique</h3>
         <label>
           First name:
@@ -31,7 +31,7 @@ const Hooks = () => {
             Good morning, {firstName} {lastName}.
           </b>
         </p>
-      </>
+      </div>
     );
   }
   //hook custom qui reproduit le fonctionnement répétitif dont la valeur est en entré du hook
@@ -49,7 +49,7 @@ const Hooks = () => {
 
     return inputProps;
   }
-  //form utilisant le hoo personalisé
+  //form utilisant le hook personalisé
   function FormWithHook() {
     const firstNameProps = useFormInput("Mary");
     const lastNameProps = useFormInput("Poppins");
@@ -74,7 +74,8 @@ const Hooks = () => {
     );
   }
   return (
-    <div style={{ textAlign: "left", margin: "50px" }}>
+    <div className="information_content">
+      <h1>Les hooks personnalisé</h1>
       source :{" "}
       <a
         href="https://react.dev/learn/reusing-logic-with-custom-hooks"
@@ -83,9 +84,9 @@ const Hooks = () => {
         Doc React
       </a>
       <p>
-        Les noms de hooks commencent toujours par use, Les applications React
-        sont construites à partir de composants. Les composants sont construits
-        à partir de Hooks, qu'ils soient intégrés ou personnalisés.
+        Les noms de hooks commencent toujours par <b>use</b>, Les applications
+        React sont construites à partir de composants. Les composants sont
+        construits à partir de Hooks, qu'ils soient intégrés ou personnalisés.
       </p>
       <p>
         {" "}
@@ -195,7 +196,7 @@ const Hooks = () => {
 
     return inputProps;
   }
-  //form utilisant le hoo personalisé
+  //form utilisant le hook personalisé
   function FormWithHook() {
     const firstNameProps = useFormInput("Mary");
     const lastNameProps = useFormInput("Poppins");
