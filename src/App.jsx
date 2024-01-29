@@ -18,15 +18,41 @@ import { ScrollTop } from "primereact/scrolltop";
 
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { changeTheme } = useContext(PrimeReactContext);
+  function switch_theme(e) {
+    setIsDarkMode(e.value);
+
+    // Obtenez le thème actuel de l'élément de lien
+    const currentTheme = document
+      .getElementById("theme-link")
+      .getAttribute("href");
+
+    // Choisissez le nouveau thème en fonction du thème actuel
+
+    const newTheme = e.value
+      ? import.meta.env.BASE_URL + "themes/lara-dark-indigo/theme.css"
+      : import.meta.env.BASE_URL + "themes/lara-light-indigo/theme.css";
+
+    // Utilisez la fonction changeTheme pour changer le thème dynamiquement
+    changeTheme(currentTheme, newTheme, "theme-link");
+  }
+
   return (
     <>
       <div className="header">
         <img id="logo-app" src={spacedLogo} alt="Spaced-logo" />
-        <div className="switch"></div>
+        <div className="switch">
+          <InputSwitch
+            id="dark_switch"
+            checked={isDarkMode}
+            onChange={(e) => switch_theme(e)}
+          />
+        </div>
       </div>
       <div className="app_container">
         <div className="header_container">
-          <h1>Apprend à apprendre</h1>
+          <h1>Your Title</h1>
           <div className="header_toolbar"></div>
         </div>
         <div className="app_content">
