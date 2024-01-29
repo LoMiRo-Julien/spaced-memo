@@ -7,14 +7,16 @@ import { PrimeReactProvider } from "primereact/api";
 import { Data_Provider } from "./contexts/Data_context.jsx";
 import Hooks from "./cours/hooks/Hooks.jsx";
 import UseRef from "./cours/hooks/UseRef.jsx";
+import CreateComponent from "./cours/composant/CreateComponent.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
     <PrimeReactProvider>
       <Data_Provider>
         <App />
-        {/* <Hooks /> */}
-        {/* <UseRef /> */}
+        <Hooks />
+        <UseRef />
+        <CreateComponent />
       </Data_Provider>
     </PrimeReactProvider>
   </StrictMode>
