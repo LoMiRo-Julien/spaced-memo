@@ -5,12 +5,18 @@ import Effect from "./hooks/Effect";
 import Hooks from "./hooks/Hooks";
 import State from "./hooks/State";
 import UseRef from "./hooks/UseRef";
+import Reducer from "./hooks/Reducer";
+import LeJsx from "./jsx/LeJsx";
 
 const Index = () => {
   const tabs = [
     {
       title: "Creer un composant",
       content: <CreateComponent />,
+    },
+    {
+      title: "Le rendu en JSX",
+      content: <LeJsx />,
     },
     {
       title: "Passer de l'information",
@@ -31,6 +37,10 @@ const Index = () => {
     {
       title: "Effets de bord",
       content: <Effect />,
+    },
+    {
+      title: "Reducteur de donnés",
+      content: <Reducer />,
     },
   ];
   return (

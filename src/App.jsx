@@ -8,7 +8,6 @@ import ForcedViewSelector from "./components/forcedView/ForcedViewSelector";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import spacedLogo from "./assets/spaced-memo.png";
-import first_Data from "./mock_data.json";
 import HelperTooltip from "./components/helper-tooltip/HelperTooltip";
 import CustomToast from "./components/toast/CustomToast";
 import CustomStats from "./components/stats/CustomStats";
