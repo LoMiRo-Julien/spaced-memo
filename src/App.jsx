@@ -15,6 +15,7 @@ import CustomStats from "./components/stats/CustomStats";
 import { PrimeReactContext } from "primereact/api";
 import { InputSwitch } from "primereact/inputswitch";
 import { ScrollTop } from "primereact/scrolltop";
+import { Data_Context } from "./contexts/Data_context";
 
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
@@ -40,6 +41,8 @@ function App() {
   }
   // Fin gestion du theme
   ///////////////////////////////////////////////////////////////////////////////
+  // recuperation de la donnée et modification de celle-ci
+  const { data, setData } = useContext(Data_Context);
 
   return (
     <>
