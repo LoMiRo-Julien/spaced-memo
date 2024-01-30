@@ -16,12 +16,13 @@ const Hooks = () => {
     }
 
     return (
-      <div>
+      <>
         <h3>Formulaire avec 2 états identique</h3>
         <label>
           First name:
           <input value={firstName} onChange={handleFirstNameChange} />
         </label>
+        <br />
         <label>
           Last name:
           <input value={lastName} onChange={handleLastNameChange} />
@@ -31,7 +32,7 @@ const Hooks = () => {
             Good morning, {firstName} {lastName}.
           </b>
         </p>
-      </div>
+      </>
     );
   }
   //hook custom qui reproduit le fonctionnement répétitif dont la valeur est en entré du hook
@@ -52,7 +53,7 @@ const Hooks = () => {
   //form utilisant le hook personalisé
   function FormWithHook() {
     const firstNameProps = useFormInput("Mary");
-    const lastNameProps = useFormInput("Poppins");
+    const { value, onChange } = useFormInput("Poppins");
 
     return (
       <>
@@ -61,13 +62,14 @@ const Hooks = () => {
           First name:
           <input {...firstNameProps} />
         </label>
+        <br />
         <label>
           Last name:
-          <input {...lastNameProps} />
+          <input value={value} onChange={onChange} />
         </label>
         <p>
           <b>
-            Good morning, {firstNameProps.value} {lastNameProps.value}.
+            Good morning, {firstNameProps.value} {value}.
           </b>
         </p>
       </>
@@ -124,6 +126,7 @@ const Hooks = () => {
           display: "flex",
           justifyContent: "space-around",
           width: "100%",
+          gap: "20px",
         }}
       >
         <div
@@ -132,7 +135,6 @@ const Hooks = () => {
             flexDirection: "column",
             justifyContent: "space-arround",
             width: "50%",
-            border: "1px red dotted",
           }}
         >
           <Highlight className="jsx">
@@ -166,7 +168,16 @@ const Hooks = () => {
         </p>
       </>
     );
-  }`}
+  }
+  
+  
+  
+  
+  
+  
+
+
+  `}
           </Highlight>
           <Form />
         </div>
@@ -176,7 +187,6 @@ const Hooks = () => {
             flexDirection: "column",
             justifyContent: "space-arround",
             width: "50%",
-            border: "1px red dotted",
           }}
         >
           <Highlight className="jsx">
@@ -199,7 +209,7 @@ const Hooks = () => {
   //form utilisant le hook personalisé
   function FormWithHook() {
     const firstNameProps = useFormInput("Mary");
-    const lastNameProps = useFormInput("Poppins");
+    const { value, onChange } = useFormInput("Poppins");
 
     return (
       <>
@@ -210,11 +220,11 @@ const Hooks = () => {
         </label>
         <label>
           Last name:
-          <input {...lastNameProps} />
+          <input value={value} onChange={onChange} />
         </label>
         <p>
           <b>
-            Good morning, {firstNameProps.value} {lastNameProps.value}.
+          Good morning, {firstNameProps.value} {value}.
           </b>
         </p>
       </>

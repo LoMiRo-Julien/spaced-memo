@@ -18,6 +18,7 @@ import { ScrollTop } from "primereact/scrolltop";
 
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
+  //gestion du theme
   const [isDarkMode, setIsDarkMode] = useState(false);
   const { changeTheme } = useContext(PrimeReactContext);
   function switch_theme(e) {
@@ -37,6 +38,8 @@ function App() {
     // Utilisez la fonction changeTheme pour changer le thème dynamiquement
     changeTheme(currentTheme, newTheme, "theme-link");
   }
+  // Fin gestion du theme
+  ///////////////////////////////////////////////////////////////////////////////
 
   return (
     <>
@@ -53,18 +56,25 @@ function App() {
       <div className="app_container">
         <div className="header_container">
           <h1>Your Title</h1>
-          <div className="header_toolbar"></div>
+          <div className="header_toolbar">
+            ajouter ici un composant qui permet d'ajouter un carte
+          </div>
         </div>
         <div className="app_content">
           <div className="card_and_stats_container">
             <div className="cards_container">
               <h3>Mes cartes à mémorisé</h3>
-              <div className="cards_content"></div>
+              <div className="cards_content">
+                ajouter ici un composant qui permet d'afficher les cartes ( les
+                cartes doivent etre sous forme de tableau d'objet)
+              </div>
             </div>
             <div className="stats_container">
               <h3>Stats</h3>
               <span>Nombre de cartes terminés</span>
-              <div className="stats_content"></div>
+              <div className="stats_content">
+                ajouter ici un composant capable d'afficher des stats
+              </div>
             </div>
           </div>
         </div>
