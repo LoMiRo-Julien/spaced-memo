@@ -43,9 +43,9 @@ function App() {
       </div>
       <div className="app_container">
         <div className="header_container">
-          <h1>Your Title</h1>
+          <h1>Choose Your Title</h1>
           <div className="header_toolbar">
-            ajouter ici un composant qui permet d'ajouter un carte
+            <div>Ajouter ici un composant qui permet d'ajouter un carte</div>
           </div>
         </div>
         <div className="app_content">
@@ -53,15 +53,25 @@ function App() {
             <div className="cards_container">
               <h3>Mes cartes à mémorisé</h3>
               <div className="cards_content">
-                ajouter ici un composant qui permet d'afficher les cartes ( les
-                cartes doivent etre sous forme de tableau d'objet)
+                <div>
+                  Ajouter ici un composant qui permet d'afficher les cartes (
+                  les cartes sont disponible dans la variable data) le composant
+                  doit rendre une carte qui est afficher ici sous forme de
+                  grille. (vous pouvez imaginez d'autres rendu )
+                </div>
+                <div>
+                  Ajouter ici un composant qui permet d'afficher les cartes (
+                  les cartes sont disponible dans la variable data) le composant
+                  doit rendre une carte qui est afficher ici sous forme de
+                  grille. (vous pouvez imaginez d'autres rendu )
+                </div>
               </div>
             </div>
             <div className="stats_container">
               <h3>Stats</h3>
               <span>Nombre de cartes terminés</span>
               <div className="stats_content">
-                ajouter ici un composant capable d'afficher des stats
+                <div>Ajouter ici un composant capable d'afficher des stats</div>
               </div>
             </div>
           </div>
