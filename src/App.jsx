@@ -15,33 +15,16 @@ import { PrimeReactContext } from "primereact/api";
 import { InputSwitch } from "primereact/inputswitch";
 import { ScrollTop } from "primereact/scrolltop";
 import { Data_Context } from "./contexts/Data_context";
+import { useNavigate } from "react-router-dom";
 
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
   //gestion du theme
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const { changeTheme } = useContext(PrimeReactContext);
-  function switch_theme(e) {
-    setIsDarkMode(e.value);
 
-    // Obtenez le thème actuel de l'élément de lien
-    const currentTheme = document
-      .getElementById("theme-link")
-      .getAttribute("href");
-
-    // Choisissez le nouveau thème en fonction du thème actuel
-
-    const newTheme = e.value
-      ? import.meta.env.BASE_URL + "themes/lara-dark-indigo/theme.css"
-      : import.meta.env.BASE_URL + "themes/lara-light-indigo/theme.css";
-
-    // Utilisez la fonction changeTheme pour changer le thème dynamiquement
-    changeTheme(currentTheme, newTheme, "theme-link");
-  }
-  // Fin gestion du theme
-  ///////////////////////////////////////////////////////////////////////////////
   // recuperation de la donnée et modification de celle-ci
-  const { data, setData } = useContext(Data_Context);
+  const navigate = useNavigate();
+  const { data, setData, switch_theme, isDarkMode } = useContext(Data_Context);
 
   return (
     <>
@@ -54,6 +37,9 @@ function App() {
             onChange={(e) => switch_theme(e)}
           />
         </div>
+        <Button onClick={() => navigate("/spaced-memo/cours")}>
+          Go to learn
+        </Button>
       </div>
       <div className="app_container">
         <div className="header_container">

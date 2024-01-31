@@ -4,6 +4,27 @@ import { createContext, useEffect, useState } from "react";
 
 export const Data_Context = createContext();
 export const Data_Provider = (props) => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  function switch_theme(e) {
+    setIsDarkMode(e.value);
+
+    // Obtenez le thème actuel de l'élément de lien
+    const currentTheme = document
+      .getElementById("theme-link")
+      .getAttribute("href");
+
+    // Choisissez le nouveau thème en fonction du thème actuel
+
+    const newTheme = e.value
+      ? import.meta.env.BASE_URL + "themes/lara-dark-indigo/theme.css"
+      : import.meta.env.BASE_URL + "themes/lara-light-indigo/theme.css";
+
+    // Utilisez la fonction changeTheme pour changer le thème dynamiquement
+    changeTheme(currentTheme, newTheme, "theme-link");
+  }
+  // Fin gestion du theme
+  ///////////////////////////////////////////////////////////////////////////////
+
   const [data, setData] = useState(
     localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")) : []
   );
@@ -25,7 +46,7 @@ export const Data_Provider = (props) => {
   }, [data]);
 
   return (
-    <Data_Context.Provider value={{ data, setData }}>
+    <Data_Context.Provider value={{ data, setData, isDarkMode, switch_theme }}>
       {props.children}
     </Data_Context.Provider>
   );

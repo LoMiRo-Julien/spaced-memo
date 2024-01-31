@@ -19,8 +19,15 @@ const Reducer = () => {
         ...state,
         children: [...state.children, action.data],
       };
+    } else if (action.type === "delChild") {
+      let childrenWhithoutLast = [...state.children];
+      childrenWhithoutLast.pop();
+      return {
+        ...state,
+        children: [...childrenWhithoutLast],
+      };
     }
-    throw Error("Unknown action.");
+    throw Error("Unknown action: " + JSON.stringify(action));
   }
   const [state, dispatch] = useReducer(reducer, {
     taille: 160,
@@ -46,14 +53,26 @@ const Reducer = () => {
     };
     dispatch(action);
   }
+  function deleteChildAction() {
+    const action = {
+      type: "delChild",
+    };
+    dispatch(action);
+  }
+  function noAction() {
+    const action = {
+      type: "random",
+    };
+    dispatch(action);
+  }
 
   return (
     <div className="information_content">
       <h1>Le hook useReducer</h1>
       <p>
         Les réducteurs sont de methodes permettant de reduire plusieurs states
-        en 1 seul fonction dispatch qui utilisera une fonction "reducer" pour
-        modifier l'état des donnée.
+        en une seul fonction de reduction appeler "reducer" pour modifier l'état
+        des donnée.
       </p>
 
       <Highlight className="jsx">
@@ -61,6 +80,7 @@ const Reducer = () => {
         // la fonction qui sera appeler lors des dispatch
 
         function reducer(state, action) {
+          // attention le state dans la fonction de reduction est en lecture seule, appliquer les regles d'immutabilitée (travail sur les copies d'objets)
           if (action.type === "incremented_age") {
             return {
               ...state,
@@ -118,6 +138,8 @@ const Reducer = () => {
         <Button onClick={ageAction}>Incrémenter l’âge</Button>
         <Button onClick={tailleAction}>Incrémenter la taille</Button>
         <Button onClick={addChildAction}>Ajouter un enfant</Button>
+        <Button onClick={deleteChildAction}>Supprimé le dernier enfant</Button>
+        <Button onClick={noAction}>Erreur</Button>
       </div>
       <p>
         Bonjour ! Vous avez {state.age} ans et mesure {state.taille} cm
@@ -131,6 +153,13 @@ const Reducer = () => {
           </li>
         ))}
       </ul>
+      <br />
+      <br />
+      <p>
+        Pour la gestion d'erreur, la bonne pratique est de throw Error(""), ce
+        qui va casser de suite l'éxecution pour être sur de ne jamais sortir du
+        switch.
+      </p>
     </div>
   );
 };
