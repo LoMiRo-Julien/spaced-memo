@@ -1,10 +1,12 @@
 //here localStorage gestion and méthods
 import first_Data from "../mock_data.json";
-import { createContext, useEffect, useState } from "react";
-
+import { createContext, useContext, useEffect, useState } from "react";
+import { PrimeReactContext } from "primereact/api";
 export const Data_Context = createContext();
 export const Data_Provider = (props) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { changeTheme } = useContext(PrimeReactContext);
+
   function switch_theme(e) {
     setIsDarkMode(e.value);
 

@@ -20,7 +20,6 @@ import { useNavigate } from "react-router-dom";
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
   //gestion du theme
-  const { changeTheme } = useContext(PrimeReactContext);
 
   // recuperation de la donnée et modification de celle-ci
   const navigate = useNavigate();
